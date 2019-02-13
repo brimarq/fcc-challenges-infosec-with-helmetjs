@@ -80,7 +80,7 @@ app.use(helmet.xssFilter());
 // instructing the browser to not bypass the provided `Content-Type`.
 
 // Use `helmet.noSniff()`
-
+app.use(helmet.noSniff());
 
 
 /** 6) Prevent IE from opening *untrusted* HTML - `helmet.ieNoOpen()` */
