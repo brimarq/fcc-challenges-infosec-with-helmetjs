@@ -93,7 +93,7 @@ app.use(helmet.noSniff());
 // to prevent IE users from executing downloads in the *trusted* site's context.
 
 // Use `helmet.ieNoOpen()`
-
+app.use(helmet.ieNoOpen());
 
 
 /**  7) Ask browsers to access your site via HTTPS only - `helmet.hsts()` */
