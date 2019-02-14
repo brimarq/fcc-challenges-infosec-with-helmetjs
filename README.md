@@ -3,6 +3,7 @@
 
 # fCC Challenges: Information Security with HelmetJS  
 
+Helmet docs are [here](https://helmetjs.github.io/docs/).
 ### 1. Install and require Helmet.  
 [Helmet](https://github.com/helmetjs/helmet) helps you secure your Express apps by setting various HTTP headers. Install the package, then require it.  
 ### 2. Hide Potentially Dangerous Information Using `helmet.hidePoweredBy()`.  
@@ -22,5 +23,10 @@ Some web applications will serve untrusted HTML for download. Some versions of I
 ### 7. Ask Browsers to Access Your Site via HTTPS Only with `helmet.hsts()`.  
 HTTP Strict Transport Security (HSTS) is a web security policy which helps to protect websites against protocol downgrade attacks and cookie hijacking. If your website can be accessed via HTTPS you can ask user’s browsers to avoid using insecure HTTP. By setting the header `Strict-Transport-Security`, you tell the browsers to use HTTPS for the future requests in a specified amount of time. This will work for the requests coming after the initial request. Configure `helmet.hsts()` to use HTTPS for the next 90 days. Pass the config object `{maxAge: timeInMilliseconds, force: true}`. Glitch already has hsts enabled. To override its settings you need to set the field `"force"` to `true` in the config object. We will intercept and restore the Glitch header, after inspecting it for testing.  
 
-NOTE: Configuring HTTPS on a custom website requires the acquisition of a domain and an SSL/TSL Certificate.
+NOTE: Configuring HTTPS on a custom website requires the acquisition of a domain and an SSL/TSL Certificate.  
+
+### 8. Disable DNS Prefetching with `helmet.dnsPrefetchControl()`.  
+To improve performance, most browsers prefetch DNS records for the links in a page. In that way the destination ip is already known when the user clicks on a link. This may lead to over-use of the DNS service (if you own a big website, visited by millions people…), privacy issues (one eavesdropper could infer that you are on a certain page), or page statistics alteration (some links may appear visited even if they are not). If you have high security needs you can disable DNS prefetching, at the cost of a performance penalty.  
+
+
 
