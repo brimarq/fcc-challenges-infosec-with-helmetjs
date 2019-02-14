@@ -1,5 +1,10 @@
 # fCC Challenges: Information Security with HelmetJS  
 
+## NOTE:  
+This set of challenges uses two *different* starter/boilerplate repos. Starting with challenge #12, the second one is expected, even though NO NOTICE is given in the instructions to that fact. So, this is my attempt to keep both in this repo. Challenges #1-11 use the `helmet-challenges` branch, while the remainder use the `bcrypt-challenges` branch.  
+
+## CHALLENGES:
+
 Helmet docs are [here](https://helmetjs.github.io/docs/).
 ### 1. Install and require Helmet.  
 [Helmet](https://github.com/helmetjs/helmet) helps you secure your Express apps by setting various HTTP headers. Install the package, then require it.  
@@ -111,5 +116,36 @@ npm install bcrypt
 ```
 ```js
 const bcrypt = require('bcrypt');
+```
+
+### 13. Hash and Compare Passwords Asynchronously.  
+As hashing is designed to be computationally intensive, it is recommended to do so asyncronously on your server to avoid blocking incoming connections while you hash. All you have to do to hash a password asynchronously is call:  
+```js
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => { /*Store hash in your db*/ });
+``` 
+
+Add this hashing function to your server (we've already defined the variables used in the function for you to use) and log it to the console for you to see! At this point you would normally save the hash to your database.  
+
+Now when you need to figure out if a new input is the same data as the hash you would just use the compare function `bcrypt.compare(myPlaintextPassword, hash, (err, res) => { /*res == true or false*/ });`. Add this into your existing hash function (since you need to wait for the hash to complete before calling the compare function) after you log the completed hash and log `res` to the console within the compare. You should see in the console a hash, then `true` is printed! If you change `myPlaintextPassword` in the compare function to `someOtherPlaintextPassword` then it should say `false`. 
+
+```js
+bcrypt.hash('passw0rd!', 13, (err, hash) => {
+  console.log(hash); //$2a$12$Y.PHPE15wR25qrrtgGkiYe2sXo98cjuMCG1YwSI5rJW1DSJp0gEYS
+  bcrypt.compare('passw0rd!', hash, (err, res) => {
+      console.log(res); //true
+  });
+});
+```
+Submit your page when you think you've got it right.  
+
+```js
+bcrypt.hash(myPlaintextPassword, saltRounds, (err, hash) => {
+  if (err) return console.log(err);
+  console.log(hash); 
+  bcrypt.compare(myPlaintextPassword, hash, (err, res) => {
+    if (err) return console.log(err);
+    console.log(res);
+  });
+});
 ```
 
