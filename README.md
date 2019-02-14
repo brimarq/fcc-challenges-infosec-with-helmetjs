@@ -106,3 +106,10 @@ To begin using BCrypt, add it as a dependency in your project and require it as 
 
 Submit your page when you think you've got it right.  
 
+```bash
+npm install bcrypt
+```
+```js
+const bcrypt = require('bcrypt');
+```
+
