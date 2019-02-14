@@ -1,5 +1,7 @@
 # fCC Challenges: Information Security with HelmetJS  
 
+https://learn.freecodecamp.org/information-security-and-quality-assurance/information-security-with-helmetjs
+
 ## NOTE:  
 This set of challenges uses two *different* starter/boilerplate repos. Starting with challenge #12, the second one is expected, even though NO NOTICE is given in the instructions to that fact. So, this is my attempt to keep both in this repo. Challenges #1-11 use the `helmet-challenges` branch, while the remainder use the `bcrypt-challenges` branch.  
 
