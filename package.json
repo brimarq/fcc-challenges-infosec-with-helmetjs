@@ -7,8 +7,12 @@
 		"start": "nodemon myApp.js"
 	},
 	"dependencies": {
+		"bcrypt": "^3.0.4",
+		"body-parser": "^1.18.3",
+		"cors": "^2.8.5",
 		"express": "^4.16.4",
-		"helmet": "^3.15.1"
+		"helmet": "^3.15.1",
+		"mongodb": "^3.1.13"
 	},
 	"devDependencies": {
 		"nodemon": "^1.18.10"
